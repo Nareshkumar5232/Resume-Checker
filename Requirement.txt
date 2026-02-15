@@ -6,7 +6,11 @@ python-docx==0.8.11
 pdfplumber==0.7.8
 scikit-learn==1.2.2
 numpy==1.24.3
-
+Note: Do NOT include spaCy model packages like `en-core-web-sm` in `requirements.txt`.
+Install the spaCy model during the build with:
+```
+python -m spacy download en_core_web_sm
+```
 
 ### How to Create requirements.txt
 
