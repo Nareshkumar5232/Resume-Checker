@@ -31,3 +31,22 @@ If you want, I can:
 - Create a Git repo and push these changes for you,
 - Deploy directly to Render (I can prepare a step-by-step or create a render.yaml), or
 - Add CI workflow (GitHub Actions) to build and deploy automatically.
+
+4) Deploy to Vercel (notes and steps)
+- Add `vercel.json` to the project root (provided) to tell Vercel to treat `app.py` as a Python entrypoint.
+- Recommended Vercel Project settings / build command:
+	- Build Command: `pip install -r requirements.txt && python -m spacy download en_core_web_sm`
+	- Output Directory: leave blank or set to `.`
+
+Notes and caveats for Vercel:
+- Vercel runs Python code as serverless functions; large language models and heavy runtime downloads (spaCy, NLTK data) may increase cold-start times or fail due to size/time limits.
+- If `python -m spacy download en_core_web_sm` fails during build, consider pre-packaging the model or deploying to a VM/container host (Render, Railway, Docker) instead.
+- To deploy:
+	1. Push your repo to GitHub.
+	2. In Vercel, choose "Import Project" → select the GitHub repo.
+	3. In Build & Output settings set the Build Command above and leave Output Directory empty.
+	4. Deploy and monitor build logs. If the build fails on model installation, switch to Render or Docker.
+
+If you want, I can also:
+- Add a GitHub Action that runs tests and optionally triggers a Vercel redeploy,
+- Prepare a lightweight serverless-friendly version (no spaCy model download) that uses a smaller NLP approach for Vercel.

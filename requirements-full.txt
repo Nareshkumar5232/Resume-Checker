@@ -1,0 +1,8 @@
+Flask
+nltk
+spacy
+python-docx
+pdfplumber
+scikit-learn
+numpy
+gunicorn
