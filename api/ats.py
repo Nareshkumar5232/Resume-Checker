@@ -3,6 +3,7 @@ import tempfile
 import re
 from docx import Document
 from pypdf import PdfReader
+import traceback
 
 def clean_text(text):
     text = re.sub(r"\s+", " ", text)
@@ -93,4 +94,5 @@ def handler(request):
         return (html, 200, {'Content-Type': 'text/html'})
 
     except Exception as e:
+        traceback.print_exc()
         return (f'<b>Error:</b> {str(e)}', 500, {'Content-Type': 'text/html'})
