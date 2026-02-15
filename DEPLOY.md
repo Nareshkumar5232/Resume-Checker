@@ -50,3 +50,5 @@ Notes and caveats for Vercel:
 If you want, I can also:
 - Add a GitHub Action that runs tests and optionally triggers a Vercel redeploy,
 - Prepare a lightweight serverless-friendly version (no spaCy model download) that uses a smaller NLP approach for Vercel.
+
+Note: Triggering a repo change will force Vercel to rebuild using the latest commit. (redeploy trigger)
