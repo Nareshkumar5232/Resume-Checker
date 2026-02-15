@@ -1,0 +1,30 @@
+It lists all the necessary Python packages that you need to install in order to run the code successfully:
+
+nltk==3.8.1
+spacy==3.5.0
+python-docx==0.8.11
+pdfplumber==0.7.8
+scikit-learn==1.2.2
+numpy==1.24.3
+
+
+### How to Create requirements.txt
+
+To generate a requirements.txt file, you can also run the following command in your project directory (if the packages are already installed in your environment):
+
+
+pip freeze > requirements.txt
+
+
+This will output the exact versions of all installed packages into the requirements.txt file.
+
+### Installing from requirements.txt
+
+Once you have the `requirements.txt` file, you can install all the required libraries by running:
+
+
+pip install -r requirements.txt
+
+
+This ensures that the necessary dependencies are installed in your environment before you run the script.
+
